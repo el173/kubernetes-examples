@@ -1,0 +1,20 @@
+replicaCount: 1
+
+image:
+  repository: el173/html_sample
+  tag: v0.2
+  pullPolicy: IfNotPresent
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: NodePort
+  port: 80
+
+ingress:
+  enabled: true
+  annotations: {
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  }
+  path: /htmlsample
